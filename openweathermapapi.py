@@ -1,5 +1,7 @@
 import requests
-import openweathermapapi
+
+
+import readerjson
 
 
 # api openweathermap.org/
@@ -8,7 +10,7 @@ def weatherjson():
 
     city = "Aksay,ru"
     city_id = 0
-    appid = "c29102cc9ef08d1e638e7d91e9e90315"
+    appid = readerjson.parsjson("weather_token")
     h = (
         "https://ru.api.openweathermap.org/data/2.5/weather?q="
         + city
@@ -17,9 +19,6 @@ def weatherjson():
         + "&appid="
         + appid
     )
-
     response = requests.get(h)
     print(response.status_code)
-    data = response.json()
-    temperature = data["main"]["temp"]
-    return data
+    return response.json()

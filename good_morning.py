@@ -1,14 +1,16 @@
+import os
 import telebot
+import get_weather
+import readerjson
 
-bot = telebot.TeleBot(
-    "7363675903:AAGeH40Hf4mS_-JuW80DIvMjXUjlZypr3CI"
-)  # ключ тетеграмм бота
+# ключ тетеграмм бота
+bot = telebot.TeleBot(readerjson.parsjson("telegram_token"))
 
 
 # обработчик команды старт
 @bot.message_handler(commands=["start"])
 def start(message):
-    bot.send_message(message.chat.id, "Hello World!")
+    bot.send_message(message.chat.id, get_weather.get_weather())
 
 
 # не отключать бот до ручного отключения
