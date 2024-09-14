@@ -1,16 +1,20 @@
-import telebot
-import get_weather
+from aiogram import Bot, Dispatcher
+# from aiogram.enums.parse_mode import ParseMode
+from aiogram.fsm.storage.memory import MemoryStorage
 import readerjson
-
-# ключ тетеграмм бота
-bot = telebot.TeleBot(readerjson.parsjson("telegram_token"))
-
-
-# # обработчик команды старт
-@bot.message_handler(commands=["start"])
-def start(message):
-    bot.send_message(message.chat.id, get_weather.get_weather())
+from handlers import router
+import asyncio
+import logging
 
 
-# # # не отключать бот до ручного отключения
-bot.polling(none_stop=True)
+async def main():
+    bot = Bot(token=readerjson.parsjson("telegram_token"))
+    dp = Dispatcher(storage=MemoryStorage())
+    dp.include_router(router)
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(main())

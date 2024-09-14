@@ -1,1 +1,6 @@
-.e.json
+pip
+python
+test.py
+__pycache__/*
+goodmorning_venv/
+.*

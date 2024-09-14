@@ -1,0 +1,9 @@
+__pycache__/
+goodmorning_venv/
+.e.json
+Dockerfile
+pip
+python
+README.md
+test.py
+.*
