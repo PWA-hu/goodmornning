@@ -1,6 +1,6 @@
 pip
 python
 test.py
-__pycache__/*
+__pycache__/
 goodmorning_venv/
 .*

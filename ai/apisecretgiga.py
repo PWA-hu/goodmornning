@@ -1,0 +1,4 @@
+gigasecret = "cde50484-c545-4875-9d3f-a6847268ba31"
+auth = "YWUyYjRlZTAtYmIzYi00ZDFlLWE3NTctNTBkZjc4M2MzZGNkOmNkZTUwNDg0LWM1NDUtNDg3NS05ZDNmLWE2ODQ3MjY4YmEzMQ=="
+clientid = "ae2b4ee0-bb3b-4d1e-a757-50df783c3dcd"
+scope = "GIGACHAT_API_PERS"
